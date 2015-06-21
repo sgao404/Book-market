@@ -22,7 +22,7 @@ echo <<<_END
     <h4>All records will be displayed for 60 days at most.</h4>
     </div>
     <div class="col-md-6">
-    <h1>Console:</h1>
+    <h1>Message:</h1>
     <div id="console">
     </div>
     </div>
@@ -79,8 +79,6 @@ _END;
 
 
 };
-
-
 
 
 ?>
