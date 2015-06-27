@@ -8,7 +8,6 @@
  * Functions:
  * $createTable: Checks whether a table already exists and, if not creates it.
  * $queryMysql: Issues a query to MySQL, outputting an error message if it fails.
- * $destroySession: Destroys a PHP session and clears its data to log users out.
  * $sanitizeString: Removes potentially malicious code or tags from user input.
  */
 
@@ -39,20 +38,25 @@ function queryMysql($query)
     return $result;
 }
 
-function destroySession()
-{
-    $_SESSION=array();
-
-    if (session_id() != "" || isset($_COOKIE[session_name()]))
-        setcookie(session_name(), '', time()-2592000, '/');
-
-    session_destroy();
-}
-
 function sanitizeString($var)
 {
     $var = strip_tags($var);
     $var = htmlentities($var);
     $var = stripslashes($var);
     return mysql_real_escape_string($var);
+}
+
+function expireOrNot($date,$id)
+{
+    $date1 = strtotime($date);
+    $tempdate = date("Y-m-d");
+    $date2 = strtotime($tempdate);
+    $secs = $date1 - $date2;
+    $days = $secs / 86400;
+
+    if ($days > 60) {
+        $query = "DELETE FROM books WHERE id=$id";
+
+        queryMysql($query);
+    }
 }

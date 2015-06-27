@@ -72,7 +72,7 @@ echo <<<_END
   z-index:50;
 }
 .input-mysize { width: 300px }
-
+.mylabel { text-align: right}
     </style>
 </head>
 <body>
@@ -85,24 +85,20 @@ echo <<<_END
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="index.php" class="navbar-brand">BUCSSA BOOKS</a>
+            <a href="index.php" class="navbar-brand">Book Market</a>
         </div>
             <div class="navbar-collapse collapse" id="navbar-main">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Homepage</a>
                     </li>
-                    <li><a href="#">Contact</a>
+                    <li><a href="http://bucssa.net/" target="_blank">BUCSSA</a>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">BU<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">One more separated link</a></li>
+                            <li><a href="http://www.bu.edu/webmail/" target="_blank">Web Mail</a></li>
+                            <li><a href="http://www.bu.edu/studentlink" target="_blank">Student Link</a></li>
+                            <li><a href="https://learn.bu.edu/" target="_blank">Blackboard</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -115,42 +111,57 @@ if ($loggedin) {
                 <div class="messagepop pop col-md-4" style="padding-top:10px">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
                     ×</button>
-    <form class="form-horizontal" role="form" method="post" action="addbook.php">
+    <form class="form-horizontal" role="form" method="post" action="addbook.php" onsubmit="return confirm('All information are correct?');">
 <fieldset>
 
 <!-- Form Name -->
 <legend>Enter book info:</legend>
 
-<!-- Text input-->
+
 <div class="form-group">
-  <label class="col-md-3 control-label" for="title">Title</label>
+  <label class="col-md-3 mylabel" for="title">Title</label>
     <div class="col-md-9">
-    <input class="input-mysize"id="booktitle" name="booktitle" type="text" placeholder="故事会" class="input-xlarge" required="">
+    <input class="input-mysize"id="title" name="title" type="text" placeholder="故事会" class="input-xlarge" required="">
 </div>
 </div>
 
-<!-- Text input-->
+
 <div class="form-group">
-  <label class="col-md-3 control-label" for="isbn">ISBN</label>
+  <label class="col-md-3 mylabel" for="isbn">ISBN</label>
   <div class="col-md-9">
-    <input class="input-mysize" id="isbn" name="isbn" type="text" placeholder="1234567890" class="input-xlarge" required="">
+    <input class="input-mysize" id="isbn" name="isbn" type="number" placeholder="1234567890" class="input-xlarge" required="">
 </div>
 </div>
 
-<!-- Text input-->
+
 <div class="form-group">
-  <label class="col-md-3 control-label" for="course">Course</label>
+  <label class="col-md-3 mylabel" for="course">Course</label>
   <div class="col-md-9">
-    <input class="input-mysize" id="course" name="course" type="text" placeholder="CAS CS111" class="input-xlarge" required="">
+    <input class="input-mysize" id="course" name="course" type="text" placeholder="CAS CS111" value=""class="input-xlarge">
     <p class="help-block">Not required</p>
     </div>
 </div>
 
 <div class="form-group">
-  <label class="col-md-3 control-label" for="condition">Condition</label>
+  <label class="col-md-3 mylabel" for="price">Price($)</label>
   <div class="col-md-9">
-      <input class="input-mysize" style="width:300px" type="range" min="1" max="10" value="5" step="1" onchange="showValue(this.value)"/><span id="range">5</span>
-      <p class="help-block">1(poor)-10(new)</p>
+    <input class="input-mysize" id="price" name="price" type="number" placeholder="120" class="input-xlarge" required="">
+    </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-3 mylabel" for="bargain">Bargaining</label>
+  <div class="col-md-9">
+  <label class="radio-inline mylabel"><input type="radio" name="bargain" id="bargain" value="Yes"checked>Yes</label>
+  <label class="radio-inline mylabel"><input type="radio" name="bargain" id="bargain" value="No">No</label>
+    </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-3 mylabel" for="condition">Condition</label>
+  <div class="col-md-9">
+      <input class="input-mysize" style="width:300px" type="range" id="condition" name="condition" min="1" max="10" value="5" step="1" onchange="showValue(this.value)"/><span id="range">5</span>
+      <p class="help-block">1(POOR) <-> 10(NEW)</p>
 <script type="text/javascript">
 function showValue(newValue)
 {
@@ -160,16 +171,13 @@ function showValue(newValue)
     </div>
 </div>
 
-
-<!-- Text input-->
 <div class="form-group">
-  <label class="col-md-3 control-label" for="contact">Contact</label>
+  <label class="col-md-3 mylabel" for="contact">Contact</label>
     <div class="col-md-9">
     <input class="input-mysize" id="contact" name="contact" type="text" placeholder="微信whitecatgsd" class="input-xlarge" required="">
 </div>
 </div>
 
-<!-- Button -->
 <div class="form-group">
   <div class="col-md-9 col-md-offset-3">
     <input id="submit" name="submit" type="submit" value="Submit" class="btn btn-primary">

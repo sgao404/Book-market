@@ -12,7 +12,7 @@ include_once 'index.php';
 // sign up case
 if ($_POST['action'] == 'signup') {
     $error = $user = $pass = "";
-    if (isset($_SESSION['user'])) destroySession();
+    if (isset($_SESSION['user'])) unset($_SESSION["user"]);
 
     $user = sanitizeString($_POST['username']);
     $pass = sanitizeString($_POST['password']);
@@ -53,7 +53,7 @@ if ($_POST['action'] == 'signup') {
         if ($token == $row[2]) {
             $_SESSION['user'] = $un_temp;
             $success = "You have logged in!You can now add or modify your posts!";
-            echo "<script >printSuccess('$success'); setTimeout(function(){ window.location = 'index.php'; }, 1000); </script>";
+            echo "<script >printSuccess('$success'); setTimeout(function(){ window.location = 'index.php'; }, 1500); </script>";
 
         } else {
             $error = "Invalid username/password combination! Try again!";

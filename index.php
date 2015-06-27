@@ -45,11 +45,12 @@ echo <<<_END
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>Name</th>
+                        <th>Title</th>
                         <th>ISBN</th>
                         <th>Condition(1-10)</th>
                         <th>Course</th>
                         <th>Price($)</th>
+                        <th>Bargaining</th>
                         <th>Owner</th>
                         <th>Contact</th>
                     </tr>
@@ -67,12 +68,17 @@ _END;
     <td>$row[3]</td>
     <td>$row[4]</td>
     <td>$row[5]</td>
+    <td>$row[6]</td>
+    <td>$row[9]</td>
     <td>$row[8]</td>
-    <td>$row[7]</td>
     <td>
-    <button type="button" class="btn btn-default btn-xs">
+    <form method="post" action="delete.php" onsubmit="return confirm('Make sure you want to delete this record!');">
+    <input type="hidden" name="idid" value="$row[0]">
+    <input type="hidden" name="own" value="$row[9]">
+    <button type="submit" class="btn btn-default btn-xs">
     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
     </button>
+    </form>
     </td>
     </tr>
 _END;

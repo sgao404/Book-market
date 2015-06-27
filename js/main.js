@@ -20,14 +20,12 @@ function checkForm(form) {
 
 function printFail(str) {
     document.getElementById("console").innerHTML = "<div class='alert alert-danger'> " +
-    "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>" +
-    "×</button> <h3>" + str +"</h3> </div>";
+    "<h3>" + str +"</h3> </div>";
 };
 
 function printSuccess(str) {
     document.getElementById("console").innerHTML = "<div class='alert alert-success'>" +
-    "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>" +
-    "×</button> <h3>" + str +"</h3> </div>";
+    "<h3>" + str +"</h3> </div>";
 };
 
 function deselect(e) {
