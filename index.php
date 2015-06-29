@@ -84,7 +84,18 @@ _END;
 _END;
 
 
+
 };
+
+echo <<<_END
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container">
+    <p class="navbar-text pull-left">Site Built By Sida Gao</p>
+    <p class="navbar-text pull-right">Bug Report Or Suggestion: WeChat-whitecatgsd Email-gaosida@bu.edu</p>
+  </div>
+</nav>
+_END;
+
 
 
 ?>

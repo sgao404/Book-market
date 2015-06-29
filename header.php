@@ -21,7 +21,7 @@ else $loggedin = FALSE;
 
 echo <<<_END
 <meta charset="UTF-8">
-    <title>Playground</title>
+    <title>Book Market</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -89,7 +89,7 @@ echo <<<_END
         </div>
             <div class="navbar-collapse collapse" id="navbar-main">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Homepage</a>
+                    <li class="active"><a href="index.php">Homepage</a>
                     </li>
                     <li><a href="http://bucssa.net/" target="_blank">BUCSSA</a>
                     </li>
